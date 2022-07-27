@@ -216,3 +216,22 @@ footer h2{
     width:80px;
     height: 80px;
 }
+.footericon{
+    width: 20px;
+    height: 20px;
+}
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+  }
+.last{
+    margin-left: 900px;
+    font-size: small;
+    margin-right: 20px;
+    padding-bottom: 50px;
+}
