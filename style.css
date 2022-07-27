@@ -36,8 +36,8 @@ header ul li img{
     margin: 80px;
 }
 .img1{
-    width: 700px;
-    height:600px ;
+    width: 550px;
+    height:650px ;
 }
 .bigfont{
     font-size: 25px;
@@ -118,6 +118,13 @@ main{
     border-radius: 6px;
     
 }
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:50px;
+}
 .cardpara2{
     font-weight: bold;
 }
@@ -188,19 +195,23 @@ main{
     
   }
   footer{
+    padding-left: 40px;
+    padding-top: 20px;
     background-color: rgb(229, 226, 226);
   }
 .container2{
     
     display: flex;
     /* margin: 80px; */
-    padding: 30px 20px 80px 30px;
+    padding: 0px 20px 80px 30px;
 }
 .footerimg{
     width: 150px;
     height: 100px;
 }
-footer h2{
+footer h1{
+    padding-left: 20px;
+    font-weight: bolder;
     margin: 20px;
 }
 .rowcontainer{
@@ -233,5 +244,5 @@ footer ul {
     margin-left: 900px;
     font-size: small;
     margin-right: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
