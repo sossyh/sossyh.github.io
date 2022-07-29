@@ -32,7 +32,6 @@ ul {
   }
 header ul li img{
     display: inline;
-    align-items: flex-end;
 }
 .container{
     display: flex;
@@ -123,11 +122,12 @@ main{
     
 }
 .left{
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:50px;
+    padding:60px 30px ;
 }
 .cardpara2{
     font-weight: bold;
