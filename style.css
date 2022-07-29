@@ -18,6 +18,7 @@ li{
     margin-left:10px ;
     height: 20px;
     width: 20px;
+    align-self: center;
 }
 ul {
     list-style-type: none;
@@ -27,13 +28,16 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items:center;
   }
 header ul li img{
     display: inline;
+    align-items: flex-end;
 }
 .container{
     display: flex;
     margin: 80px;
+
 }
 .img1{
     width: 550px;
