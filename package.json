@@ -1,20 +1,20 @@
 {
-  "title": "Yisehak Bogale",
-  "name": "yiseboge-resume",
+  "title": "Sosna Worku Achamyeleh",
+  "name": "SosnaAchamyeleh-resume",
   "scripts": {
     "start": "node_modules/.bin/gulp watch"
   },
-  "description": "A personal Resume site for Yisehak Bogale Feleke.",
+  "description": "A personal Resume site for Sosna Worku Achamyeleh.",
   "keywords": [
     "css",
     "sass",
     "html",
     "template",
-    "yisehak",
-    "bogale",
-    "feleke"
+    "Sosna",
+    "Worku",
+    "Achamyeleh"
   ],
-  "repository": "https://github.com/YiseBoge/yiseboge.github.io",
+  "repository": "https://github.com/sossyh/sossyh.github.io",
   "license": "UNLICENSED",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.11.2",
