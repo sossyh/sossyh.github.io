@@ -1,0 +1,122 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 170px;
+}
+.nav-menu{
+    display: flex;
+align-items: center;
+    gap: 40px;
+    font-size: 18px;
+    list-style: none;
+}
+.nav-connect{
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: linear-gradient(267deg, #DA7C25 0.36%, #B923E1 100%);
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.nav-connect:hover{
+    transform: scale(1.05);
+}
+.nav-logo {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  /* Gradient text (same theme as hero & footer) */
+  background: linear-gradient(267deg, #DF8908 0.36%, #B415FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Subtle interaction */
+.nav-logo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.anchor-link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline + color */
+.anchor-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(267deg, #DF8908 0.36%, #B415FF 100%);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.anchor-link:hover {
+  color: #B415FF;
+}
+
+.anchor-link:hover::after {
+  width: 100%;
+}
+
+.nav-mob-close{
+    display: none;
+}
+.nav-mob-open{
+    display: none;
+}
+@media(max-width: 850px){
+    .navbar{
+        margin: 20px 50px;
+    }
+   
+    .nav-connect{
+        display: none;
+    }
+    .nav-mob-open{
+        display: block;
+        position:fixed;
+        right:30px;
+        cursor: pointer;
+    }
+    .nav-mob-close{
+        display: block;
+        position: relative;
+        left: 290px;
+        top: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+    .nav-menu{
+        position: fixed;
+        flex-direction: column;
+        align-items: start;
+        top: 0;
+        gap: 30px;
+        background-color: #1F0016;
+        width: 350px;
+        height: 100%;
+        z-index: 2;
+        transition: right 0.5s;
+        right: -400px;
+    }
+    .nav-menu li{
+        font-size: 30px;
+        padding-left: 100px;
+        flex-direction: row;
+        gap: 20px;
+    }
+}
+

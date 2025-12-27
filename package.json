@@ -1,39 +1,28 @@
 {
-  "title": "Sosna Worku Achamyeleh",
-  "name": "SosnaAchamyeleh-resume",
+  "name": "portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "node_modules/.bin/gulp watch"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "description": "A personal Resume site for Sosna Worku Achamyeleh.",
-  "keywords": [
-    "css",
-    "sass",
-    "html",
-    "template",
-    "Sosna",
-    "Worku",
-    "Achamyeleh"
-  ],
-  "repository": "https://github.com/sossyh/sossyh.github.io",
-  "license": "UNLICENSED",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "5.11.2",
-    "bootstrap": "4.3.1",
-    "jquery": "^3.5.1",
-    "jquery.easing": "^1.4.1",
-    "popper.js": "^1.16.1"
+    "react": "^19.2.0",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.13",
-    "del": "4.1.1",
-    "gulp": "4.0.2",
-    "gulp-autoprefixer": "6.1.0",
-    "gulp-clean-css": "4.2.0",
-    "gulp-header": "2.0.7",
-    "gulp-plumber": "^1.2.1",
-    "gulp-rename": "1.4.0",
-    "gulp-sass": "4.0.2",
-    "gulp-uglify": "3.0.2",
-    "merge-stream": "2.0.0"
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "^7.2.4"
   }
 }

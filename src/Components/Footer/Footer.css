@@ -1,0 +1,123 @@
+.footer {
+  padding: 60px 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Top Section ---------- */
+.footer-top {
+  text-align: center;
+}
+
+.footer-top h3 {
+  font-size: 28px;
+  font-weight: 600;
+  background: linear-gradient(267deg, #DF8908 0.36%, #B415FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-top p {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+/* ---------- Navigation Links ---------- */
+.footer-links {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 16px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-links a:hover {
+  transform: translateY(-3px);
+  color: #B415FF;
+}
+
+/* ---------- Social Links ---------- */
+.footer-socials {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-socials a {
+  text-decoration: none;
+  font-size: 16px;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 10px 22px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+  background: linear-gradient(267deg, #DA7C25 0.36%, #B923E1 100%);
+  border-color: transparent;
+  transform: scale(1.05);
+}
+
+/* ---------- Bottom ---------- */
+.footer-bottom {
+  font-size: 14px;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* ================================
+   Responsive Design
+================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 6%;
+  }
+
+  .footer-links {
+    gap: 20px;
+  }
+
+  .footer-socials {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .footer {
+    padding: 40px 5%;
+    gap: 25px;
+  }
+
+  .footer-top h3 {
+    font-size: 24px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-socials {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-socials a {
+    width: 100%;
+    text-align: center;
+  }
+}
