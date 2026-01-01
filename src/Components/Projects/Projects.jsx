@@ -1,27 +1,53 @@
 import React from 'react';
-import './projects.css';
+import './Projects.css';
 import theme_pattern from '../../assets/theme_pattern.svg';
-import mywork_data from '../../assets/mywork_data';
 import arrow_icon from '../../assets/arrow_icon.svg';
+import projectsData from './data.jsx';
 
 const Projects = () => {
   return (
     <div id="projects" className="mywork">
-<div  className="mywork-title">
+
+      <div className="mywork-title">
         <h1>My Projects</h1>
-       <img src={theme_pattern} alt="Theme pattern" /> 
-        {/* <p>Here are some of the projects I've worked on in the past.</p> */}
+        <img src={theme_pattern} alt="Theme pattern" />
       </div>
+
       <div className="mywork-container">
-{mywork_data.map((work, index) => (
-  <img key={index} src={work.w_img} alt={work.title} className="mywork-image" />
-))}
-        </div>
-    
-    <div className="mywork-showmore">
-      <p>Show More</p>
-      <img src={arrow_icon} alt="Arrow icon" />
-    </div>
+        {projectsData.map((project) => (
+          <div key={project.id} className="project-card">
+
+            <img
+              src={project.image}
+              alt={project.title}
+              className="project-image"
+            />
+
+            <div className="project-content">
+              <h2>{project.title}</h2>
+              <span className="project-duration">{project.duration}</span>
+
+              <ul>
+                {project.description.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link"
+              >
+                View Live
+                <img src={arrow_icon} alt="arrow" />
+              </a>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 };
