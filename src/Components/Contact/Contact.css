@@ -70,12 +70,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
  }
 
  .contact-right label{
     color: #D8D8D8;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
 
  }
@@ -83,7 +83,7 @@
  .contact-right input{
     border: none;
     width: 700px;
-    height: 70px;
+    height: 60px;
     padding-left: 20px;
     border-radius: 5px;
     background-color: #32323c;
@@ -94,7 +94,7 @@
 
 .contact-right textarea{
     border: none;
-    width: 700px;
+    width: 688px;
     padding: 20px;
     border-radius: 5px;
     background-color: #32323c;
@@ -109,8 +109,8 @@
    color: white;
    border-radius: 50px;
    background: linear-gradient(267deg, #DF8908 0.36%, #B415FF 100%);
-   font-size: 22px;
-   padding: 20px 60px;
+   font-size: 20px;
+   padding: 15px 50px;
    cursor: pointer;
    margin-bottom: 20px;
 }
