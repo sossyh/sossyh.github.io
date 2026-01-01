@@ -20,12 +20,11 @@ const About = () => {
         <div className="about-right">
           <div className="about-para">
             <p>
-              Hello! I'm Sosna, a passionate software developer with a knack for creating
-              dynamic and user-friendly web applications.
+              I’m a software engineer passionate about machine learning, natural language processing, and creating practical solutions to real-world problems. I enjoy building applications that make technology accessible and impactful.
+
             </p>
             <p>
-              My journey in software development began several years ago, and since then,
-              I've honed my skills in various programming languages and frameworks.
+Beyond coding, I focus on research, teaching, and empowering underrepresented communities in tech, aiming to combine innovation with meaningful societal impact.
             </p>
           </div>
 
