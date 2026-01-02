@@ -41,7 +41,6 @@
     font-weight: 500;
 }
 
-/* Skills container */
 .about-skills {
   margin-top: 20px;
   display: flex;
@@ -51,7 +50,7 @@
 
 /* Card layout */
 .about-skill {
-  padding: 28px;
+  padding: 27px;
   border-radius: 25px; /* rounded like hero buttons */
   border: 2px solid rgba(255, 255, 255, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
