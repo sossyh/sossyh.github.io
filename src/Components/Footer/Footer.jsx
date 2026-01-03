@@ -42,7 +42,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>© 2024 Sosna Achamyeleh. All rights reserved.</p>
+        <p>© 2026 Sosna Achamyeleh. All rights reserved.</p>
       </div>
 
     </footer>
