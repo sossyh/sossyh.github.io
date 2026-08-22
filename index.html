@@ -1,16 +1,422 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sosna Achamyeleh</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sosna Worku Achamyeleh | AI/ML Researcher</title>
+<meta name="description" content="Sosna Worku Achamyeleh, MS student in AI/ML at George Washington University, working on reliability and explainability of vision models under medical distribution shift.">
+
+<!-- ============================================================
+     HOW TO UPDATE THIS SITE
+     This file is meant to stay put; the design should not need
+     to change. To add new content, find the matching comment
+     block below and copy/paste a new entry in the same shape:
+       - "ADD PUBLICATION HERE"        -> new paper
+       - "ADD EXPERIENCE HERE"         -> new research/professional role
+       - "ADD TEACHING HERE"           -> new teaching role
+       - "ADD LEADERSHIP HERE"         -> new leadership role
+       - "ADD PROJECT HERE"            -> new project
+       - "ADD AWARD HERE"              -> new award/honor
+       - "ADD PRESENTATION HERE"       -> new poster/talk
+       - "ADD PROFESSIONAL DEV HERE"   -> new course/program
+     Write-ups live on writing.html, with its own "ADD WRITE-UP
+     HERE" block. Shared styling lives in styles.css and shared
+     behavior in main.js; neither should need to be touched.
+     ============================================================ -->
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html#about" class="nav-mark">Sosna Achamyeleh</a>
+    <nav aria-label="Section navigation" style="display:flex; align-items:center; gap:14px;">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="writing.html">Writing</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#awards">Awards</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      </button>
+      <button class="nav-toggle-btn" id="navToggle" aria-label="Open menu" aria-expanded="false" type="button">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ HERO / ABOUT ============================ -->
+  <section id="about" class="wrap hero">
+    <div>
+      <span class="eyebrow">AI / ML Researcher</span>
+      <h1>Sosna Worku<br>Achamyeleh</h1>
+      <p class="role">MS student in Artificial Intelligence &amp; Machine Learning, The George Washington University</p>
+      <div class="bio">
+        <p>I study whether deep learning models stay reliable when the world they were trained on shifts. My current focus is vision transformers and convolutional networks for medical image classification. My thesis compares ViT-B/16 and ResNet-50 on chest X-rays under cross-institutional distribution shift, looking at calibration, uncertainty, and whether explanation methods like GradCAM and attention rollout point to the right thing for the right reason.</p>
+        <p>I'm supported by the Black in Robotics + 3M Tuition Fellowship at GWU, and I'm working toward a PhD in trustworthy and reliable AI. Before this, I taught computer science at <a href="https://www.aau.edu.et/" target="_blank" rel="noopener">Addis Ababa University</a> and led communications education for <a href="https://a2sv.org/" target="_blank" rel="noopener">Africa to Silicon Valley</a>, training 200+ students across the continent.</p>
+      </div>
+      <div class="links-row">
+        <a href="mailto:sosna.achamyeleh@gwu.edu">sosna.achamyeleh@gwu.edu</a>
+        <a href="https://www.linkedin.com/in/sosna-achamyeleh/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/sossyh" target="_blank" rel="noopener">GitHub</a>
+        <!-- Point this at your latest exported CV PDF once you add one to the repo -->
+        <a href="./cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+      </div>
+    </div>
+
+    <!-- profile photo -->
+    <img class="portrait" src="photo.png" alt="Portrait of Sosna Worku Achamyeleh" width="152" height="152">
+  </section>
+
+  <!-- ============================ RESEARCH INTERESTS ============================ -->
+  <section id="research" class="wrap">
+    <span class="eyebrow">Research</span>
+    <h2 class="section-title">Research Interests</h2>
+    <p class="interest-list">Computer Vision <span class="sep">&middot;</span> Vision Foundation Models <span class="sep">&middot;</span> Multimodal AI <span class="sep">&middot;</span> Deep Learning <span class="sep">&middot;</span> Medical AI <span class="sep">&middot;</span> Representation Learning <span class="sep">&middot;</span> Trustworthy AI <span class="sep">&middot;</span> Large-Scale AI Systems</p>
+  </section>
+
+  <!-- ============================ PUBLICATIONS ============================ -->
+  <section id="publications" class="wrap">
+    <span class="eyebrow">Publications</span>
+    <h2 class="section-title">Papers and Working Papers</h2>
+
+    <div class="pub-list">
+      <!-- ============ ADD PUBLICATION HERE (copy this whole .pub block) ============ -->
+      <div class="pub">
+        <p class="pub-title">Reliability and Explainability of Vision Transformers Under Medical Distribution Shift: A Comparative Study on Chest X-Ray Classification</p>
+        <p class="pub-meta"><span class="pub-status">In preparation</span> &middot; Sosna W. Achamyeleh &middot; target venue: <span class="pub-venue">WiCV @ ECCV 2026</span></p>
+        <p class="pub-abstract">Compares ViT-B/16 and ResNet-50 for chest X-ray classification under cross-institutional distribution shift. In distribution, the ViT outperforms the CNN, but degrades more sharply once the data shifts. Calibration breaks down for both architectures, Monte Carlo dropout fails to flag out-of-distribution inputs, and attention rollout and GradCAM localize poorly under shift, raising questions about whether these explanation methods can be trusted exactly when they're needed most.</p>
+        <div class="pub-links">
+          <span class="disabled">PDF &middot; coming soon</span>
+          <span class="disabled">Code &middot; coming soon</span>
+        </div>
+      </div>
+      <!-- ============ END ADD PUBLICATION HERE ============ -->
+    </div>
+  </section>
+
+  <!-- ============================ EXPERIENCE ============================ -->
+  <section id="experience" class="wrap">
+    <span class="eyebrow">Experience</span>
+    <h2 class="section-title">Research, Teaching &amp; Leadership</h2>
+
+    <p class="group-label">Research &amp; Professional Experience</p>
+
+    <!-- ============ ADD EXPERIENCE HERE (copy this whole .entry block) ============ -->
+    <div class="entry">
+      <div class="entry-date">Mar 2025 &ndash; Jul 2025</div>
+      <div>
+        <p class="entry-title">Software Developer</p>
+        <p class="entry-org">Phoenixopia Solutions PLC &middot; Addis Ababa, Ethiopia</p>
+        <ul>
+          <li>Developed responsive client-side web applications using Next.js and Tailwind CSS with a focus on usability, performance, and maintainability.</li>
+          <li>Implemented client-side routing and optimized page performance using Next.js Link and Image components.</li>
+          <li>Integrated backend REST APIs to retrieve and display dynamic data within web applications.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">Oct 2024 &ndash; Mar 2025</div>
+      <div>
+        <p class="entry-title">Junior Machine Learning Engineer (Volunteer)</p>
+        <p class="entry-org">Omdena San Jose Chapter &middot; Remote (San Jose, CA)</p>
+        <ul>
+          <li>Contributed to a predictive modeling project estimating the risk of Coronary Artery Disease and Heart Failure using National Health and Nutrition Examination Survey (NHANES 2017&ndash;2020) data.</li>
+          <li>Led a team of 25 junior machine learning engineers in developing data preprocessing workflows, including missing-data handling with Multivariate Imputation by Chained Equations (MICE) and feature selection using Recursive Feature Elimination (RFE).</li>
+          <li>Conducted exploratory data analysis using Matplotlib and Seaborn to investigate relationships between health indicators and disease outcomes.</li>
+          <li>Developed and evaluated Random Forest, XGBoost, and Logistic Regression models; XGBoost achieved the highest performance with 88% accuracy, 0.86 precision, 0.84 recall, and 0.85 F1-score.</li>
+          <li>Mentored team members on data preprocessing techniques, machine learning workflows, and model evaluation approaches.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">Mar 2023 &ndash; Jun 2023</div>
+      <div>
+        <p class="entry-title">Software Engineer Intern</p>
+        <p class="entry-org">Escalate Africa Software Development S.C. &middot; Addis Ababa, Ethiopia</p>
+        <ul>
+          <li>Developed a hospital and doctor recommendation system for Addis Ababa, providing personalized recommendations based on user-reported symptoms.</li>
+          <li>Collaborated with a 15-member development team to design and integrate frontend and backend components.</li>
+          <li>Developed RESTful APIs using ASP.NET Core, achieving response times below 90&nbsp;ms under 500 concurrent requests.</li>
+          <li>Improved software reliability and maintainability by implementing Clean Architecture principles and Test-Driven Development (TDD), achieving 100% unit test coverage across 50+ modules.</li>
+        </ul>
+      </div>
+    </div>
+    <!-- ============ END ADD EXPERIENCE HERE ============ -->
+
+    <p class="group-label">Teaching Experience</p>
+
+    <!-- ============ ADD TEACHING HERE (copy this whole .entry block) ============ -->
+    <div class="entry">
+      <div class="entry-date">Mar 2025 &ndash; Aug 2025</div>
+      <div>
+        <p class="entry-title">Assistant Lecturer (Part-time), Computer Programming</p>
+        <p class="entry-org">Addis Ababa University &middot; Addis Ababa, Ethiopia</p>
+        <ul>
+          <li>Delivered lectures and laboratory sessions for an undergraduate Computer Programming course covering Python programming, loops, functions, object-oriented programming, and algorithms.</li>
+          <li>Guided students in designing algorithms using flowcharts and translating them into working Python programs through practical assignments.</li>
+          <li>Supervised group projects and provided hands-on guidance in coding, debugging, and improving software solutions.</li>
+        </ul>
+        <p class="entry-tools">Tools: Python, Google Colab</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">Jul 2024 &ndash; Aug 2024</div>
+      <div>
+        <p class="entry-title">Teaching Assistant, Data Structures &amp; Algorithms</p>
+        <p class="entry-org">AddisCoder &middot; Addis Ababa, Ethiopia</p>
+        <ul>
+          <li>Assisted 99 high school students across Ethiopia in learning programming fundamentals, data structures, and algorithms.</li>
+          <li>Delivered mini-lectures and provided hands-on support during laboratory sessions to help students understand programming concepts.</li>
+        </ul>
+        <p class="entry-tools">Tools: Python, Jupyter Notebook</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">Feb 2024 &ndash; Mar 2024</div>
+      <div>
+        <p class="entry-title">Back-end Development Instructor (Volunteer)</p>
+        <p class="entry-org">Ethioware EdTech Initiative</p>
+        <ul>
+          <li>Trained 54 women across multiple African countries in backend software development through project-based instruction.</li>
+          <li>Guided students in building backend applications using C#, ASP.NET Core, PostgreSQL, GitHub, and related development tools.</li>
+        </ul>
+        <p class="entry-tools">Tools: C#, ASP.NET Core, PostgreSQL, VS Code, GitHub</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">Aug 2022</div>
+      <div>
+        <p class="entry-title">Teaching Assistant, Programming and Web Development</p>
+        <p class="entry-org">American Spaces &middot; Bahir Dar, Ethiopia</p>
+        <ul>
+          <li>Taught programming fundamentals and static web development to 15 students through hands-on lessons.</li>
+        </ul>
+        <p class="entry-tools">Tools: HTML, CSS, JavaScript, VS Code</p>
+      </div>
+    </div>
+    <!-- ============ END ADD TEACHING HERE ============ -->
+
+    <p class="group-label">Leadership Experience</p>
+
+    <!-- ============ ADD LEADERSHIP HERE (copy this whole .entry block) ============ -->
+    <div class="entry">
+      <div class="entry-date">Nov 2023 &ndash; Mar 2025</div>
+      <div>
+        <p class="entry-title">Head of Communications Education</p>
+        <p class="entry-org">Africa to Silicon Valley (A2SV) &middot; Addis Ababa, Ethiopia</p>
+        <ul>
+          <li>Led the Communications Education program, designing and delivering training that helped students strengthen professional communication, presentation, and technical interview skills.</li>
+          <li>Mentored and taught 205 university students from more than 20 African countries through interactive lectures and workshops.</li>
+        </ul>
+      </div>
+    </div>
+    <!-- ============ END ADD LEADERSHIP HERE ============ -->
+
+  </section>
+
+  <!-- ============================ PROJECTS ============================ -->
+  <section id="projects" class="wrap">
+    <span class="eyebrow">Projects</span>
+    <h2 class="section-title">Selected Projects</h2>
+
+    <!-- ============ ADD PROJECT HERE (copy this whole .entry block) ============ -->
+    <div class="entry">
+      <div class="entry-date">Jun 2026 &ndash; Present</div>
+      <div>
+        <p class="entry-title">Reliability and Explainability of Vision Transformers Under Medical Distribution Shift</p>
+        <ul>
+          <li>Investigated whether deep learning models for medical image classification maintain reliable performance when evaluated across different healthcare datasets, focusing on robustness, uncertainty, and explainability.</li>
+          <li>Trained and compared Vision Transformer and convolutional neural network architectures using medical chest X-ray datasets, applying PyTorch-based deep learning workflows for model development and evaluation.</li>
+          <li>Analyzed model behavior using performance metrics, calibration methods, uncertainty estimation, and explanation techniques including attention-based visualization and GradCAM.</li>
+          <li>Evaluated the trade-off between predictive performance and reliability, highlighting challenges in deploying AI models under real-world clinical distribution shifts.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">Jul 2026 &ndash; Present</div>
+      <div>
+        <p class="entry-title">Investigating Face-Selective Visual Information Using Deep Neural Network Ablation</p>
+        <p class="entry-org">Neuromatch Academy</p>
+        <ul>
+          <li>Studied how artificial neural networks represent visual information by comparing deep neural network features with human brain responses measured through fMRI.</li>
+          <li>Built voxel-wise encoding models using pretrained vision networks and fMRI responses from the Algonauts 2021 dataset to analyze relationships between model representations and visual brain regions.</li>
+          <li>Compared AlexNet and face-specialized ResNet-50 representations to examine how network architecture and training objectives influence learned visual features.</li>
+          <li>Investigated targeted neural network ablation to identify whether specific artificial units contribute selectively to face-related visual processing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">Jan 2026 &ndash; May 2026</div>
+      <div>
+        <p class="entry-title">Benchmarking Classical and Transformer-Based NLP Models for Stress Detection</p>
+        <ul>
+          <li>Investigated the effectiveness of traditional machine learning and transformer-based approaches for detecting stress from social media text using the Dreaddit Reddit dataset.</li>
+          <li>Built and compared Naive Bayes, Logistic Regression with TF-IDF features, and DistilBERT models using Python, Scikit-learn, and Hugging Face Transformers.</li>
+          <li>Designed robust evaluation experiments using six stratified train/validation/test splits and statistical significance tests including McNemar's test, Wilcoxon signed-rank test, and Nadeau&ndash;Bengio corrected t-test.</li>
+          <li>Found that DistilBERT achieved the strongest performance with a macro F1-score of 0.793 and ROC-AUC of 0.880, outperforming classical approaches.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">Sep 2023 &ndash; Jun 2024</div>
+      <div>
+        <p class="entry-title">Threat Detection in Spoken Amharic Language</p>
+        <ul>
+          <li>Developed a real-time speech classification system to identify threatening and non-threatening spoken Amharic content, addressing the lack of available resources for Amharic language technologies.</li>
+          <li>Built and annotated an audio dataset of 5,800 recordings and applied augmentation techniques including time stretching, pitch shifting, noise addition, and time shifting using Python-based audio processing tools.</li>
+          <li>Extracted acoustic representations using Mel-Frequency Cepstral Coefficients (MFCCs), Chroma features, spectral features, and Zero-Crossing Rate (ZCR), then evaluated CNN, RNN, and LSTM architectures.</li>
+          <li>Achieved the strongest performance using a CNN-based model, demonstrating the feasibility of deep learning approaches for real-time Amharic speech threat detection.</li>
+        </ul>
+      </div>
+    </div>
+    <!-- ============ END ADD PROJECT HERE ============ -->
+
+  </section>
+
+  <!-- ============================ AWARDS ============================ -->
+  <section id="awards" class="wrap">
+    <span class="eyebrow">Awards</span>
+    <h2 class="section-title">Awards &amp; Recognition</h2>
+
+    <p class="group-label">Awards &amp; Achievements</p>
+    <ul class="line-list">
+      <!-- ============ ADD AWARD HERE (copy this whole <li>) ============ -->
+      <li><span class="dot">&#9679;</span><span>Best Poster Presentation (Team Award), Addis Ababa University Research Week 2024, for <em>Threat Detection in Spoken Amharic Language</em>. <a class="cert-link" href="https://drive.google.com/file/d/11uqDvG1mSXpuPF65gBtXTL2dnJ900Juu/view?usp=sharing" target="_blank" rel="noopener">Certificate</a></span></li>
+      <li><span class="dot">&#9679;</span><span>Top 2% Finalist, 2023 Cohort, Aspire Leaders Program, selected from a global pool of participants. <a class="cert-link" href="https://drive.google.com/file/d/1lfodOc4Ky7tDk0EV5W7D7bXnLcjQwVXd/view" target="_blank" rel="noopener">Certificate</a></span></li>
+      <li><span class="dot">&#9679;</span><span>Awarded $1,250 for Eskalate LLC's third impactful real-world group project through the A2SV internship program. <a class="cert-link" href="https://www.linkedin.com/posts/a2sv_a2sv-internshipfinals-innovation-activity-7082707349785718784-MKM6" target="_blank" rel="noopener">Details</a></span></li>
+      <li><span class="dot">&#9679;</span><span>Selected among the top 40 students in Ethiopia to represent the country in Huawei's Seeds for the Future program, 2021. <a class="cert-link" href="https://drive.google.com/file/d/1-CXTQNJx5vKhAGsXGJcv5oOGpN8W9W5Z/view" target="_blank" rel="noopener">Certificate</a></span></li>
+      <!-- ============ END ADD AWARD HERE ============ -->
+    </ul>
+
+    <p class="group-label">Posters &amp; Presentations</p>
+    <ul class="line-list">
+      <!-- ============ ADD PRESENTATION HERE (copy this whole <li>) ============ -->
+      <li><span class="dot">&#9679;</span><span>Presented a research poster, <em>Benchmarking Classical and Transformer-Based NLP Models for Stress Detection</em>, at the George Washington University SEAS Research &amp; Development and Senior Design Showcase, April 2026.</span></li>
+      <li><span class="dot">&#9679;</span><span>Presented a research poster, <em>Threat Detection in Spoken Amharic Language</em>, at Addis Ababa University Research Week, May 2024.</span></li>
+      <!-- ============ END ADD PRESENTATION HERE ============ -->
+    </ul>
+  </section>
+
+  <!-- ============================ EDUCATION ============================ -->
+  <section id="education" class="wrap">
+    <span class="eyebrow">Education</span>
+    <h2 class="section-title">Academic Background</h2>
+
+    <p class="group-label">Degrees</p>
+
+    <div class="edu">
+      <p class="edu-school">The George Washington University</p>
+      <p class="edu-degree">M.S. in Artificial Intelligence &amp; Machine Learning <span style="color:var(--text-muted); font-weight:400;">(formerly enrolled in M.S. in Computer Science, Machine Intelligence &amp; Cognition specialization)</span></p>
+      <p class="edu-meta">Aug 2025 &ndash; Expected May 2027 &middot; Washington, DC</p>
+      <ul>
+        <li>GPA: 3.78/4.00</li>
+        <li>Black in Robotics + 3M Tuition Fellowship ($26,115): recipient of a tuition fellowship awarded to one of the top two applicants.</li>
+        <li>Coursework: Design &amp; Analysis of Algorithms, Machine Learning, Neural Networks &amp; Deep Learning, Trustworthy AI, Computer System Architecture, Advanced Software Paradigms.</li>
+      </ul>
+    </div>
+
+    <div class="edu">
+      <p class="edu-school">Addis Ababa University</p>
+      <p class="edu-degree">B.S. in Software Engineering and Computing Technology (Software Engineering Stream)</p>
+      <p class="edu-meta">Oct 2019 &ndash; Jul 2024 &middot; Addis Ababa, Ethiopia</p>
+      <ul>
+        <li>GPA: 3.62/4.00 (Great Distinction)</li>
+        <li>Coursework: Natural Language Processing, Fundamentals of Artificial Intelligence, Machine Learning and Big Data, Data Structures &amp; Algorithms, Object-Oriented Programming, Operating Systems, Human-Computer Interaction.</li>
+      </ul>
+    </div>
+
+    <p class="group-label">Professional Development</p>
+
+    <!-- ============ ADD PROFESSIONAL DEV HERE (copy this whole .entry block) ============ -->
+    <div class="entry">
+      <div class="entry-date">Jul 2026</div>
+      <div>
+        <p class="entry-title">Deep Learning Course</p>
+        <p class="entry-org">Neuromatch Academy</p>
+        <ul>
+          <li>Completed an intensive course on building and analyzing deep learning models using Python and PyTorch, covering neural networks, computer vision, transformers, generative models, optimization, and reinforcement learning.</li>
+          <li>Collaborated in a six-member team project comparing visual representations learned by deep neural networks with human brain responses from fMRI data to study how AI models process visual information.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">Oct 2022 &ndash; Oct 2023</div>
+      <div>
+        <p class="entry-title">Data Structures &amp; Algorithms Program</p>
+        <p class="entry-org">Africa to Silicon Valley (A2SV)</p>
+        <ul>
+          <li>Completed an intensive program focused on data structures, algorithms, competitive programming, and developing problem-solving skills for technical challenges.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">Apr 2023 &ndash; Oct 2023</div>
+      <div>
+        <p class="entry-title">Leadership Program Participant</p>
+        <p class="entry-org">Aspire Leaders Program</p>
+        <ul>
+          <li>Participated in a global leadership program founded at Harvard University, focused on communication, leadership development, professional growth, and engagement with an international cohort.</li>
+        </ul>
+      </div>
+    </div>
+    <!-- ============ END ADD PROFESSIONAL DEV HERE ============ -->
+
+  </section>
+
+  <!-- ============================ CONTACT ============================ -->
+  <section id="contact" class="wrap">
+    <span class="eyebrow">Get in Touch</span>
+    <h2 class="section-title">Contact</h2>
+    <p style="max-width:58ch; color:var(--text-muted);">I'm always glad to talk about medical imaging, explainability, or trustworthy AI, and equally glad to hear from prospective collaborators and PhD programs. Reach me by email or find me on the links below.</p>
+    <div class="contact-row">
+      <a href="mailto:sosna.achamyeleh@gwu.edu">Email</a>
+      <a href="https://www.linkedin.com/in/sosna-achamyeleh/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/sossyh" target="_blank" rel="noopener">GitHub</a>
+      <a href="./cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-inner">
+    <span>&copy; <span id="year"></span> Sosna Worku Achamyeleh</span>
+    <span>Washington, DC</span>
+  </div>
+</footer>
+
+<script src="main.js?v=2"></script>
+</body>
 </html>
