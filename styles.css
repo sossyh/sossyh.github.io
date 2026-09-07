@@ -1,25 +1,32 @@
 :root{
-  --bg:#fafaf8;
-  --text:#16181b;
-  --text-muted:#63676f;
-  --border:#e6e4dd;
-  --accent:#146356;
-  --nav-h:64px;
-  --maxw:clamp(760px, 78vw, 1000px);
+  --bg:#ffffff;
+  --text:#1a1c1f;
+  --text-muted:#5f636a;
+  --border:#e3e3e0;
+  --accent:#14554a;
+  --nav-h:60px;
+  --maxw:760px;
+
+  /* Top and bottom padding on each section. The anchor offset below
+     is derived from this, so change it here and jump-to-section
+     scrolling stays correct. */
+  --section-pad:52px;
+  /* Gap left between the nav bar and a section heading after a jump. */
+  --anchor-gap:20px;
 }
 html[data-theme="dark"]{
-  --bg:#0e1112;
-  --text:#ecece7;
-  --text-muted:#989d9c;
-  --border:#262a2b;
-  --accent:#4fbba9;
+  --bg:#101315;
+  --text:#e8e8e4;
+  --text-muted:#9aa0a0;
+  --border:#252a2b;
+  --accent:#5cc0ae;
 }
 
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior:auto; }
-  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  *{ transition-duration:0.001ms !important; }
 }
 
 body{
@@ -27,8 +34,8 @@ body{
   background:var(--bg);
   color:var(--text);
   font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size:16.5px;
-  line-height:1.7;
+  font-size:16px;
+  line-height:1.65;
   -webkit-font-smoothing:antialiased;
   transition:background 0.2s ease, color 0.2s ease;
   overflow-wrap:break-word;
@@ -39,171 +46,182 @@ a{ color:inherit; }
 .skip-link{
   position:absolute; left:-9999px; top:0;
   background:var(--accent); color:#fff; padding:10px 16px;
-  z-index:200; border-radius:0 0 6px 0;
+  z-index:200;
 }
 .skip-link:focus{ left:0; }
 
 :focus-visible{
   outline:2px solid var(--accent);
   outline-offset:3px;
-  border-radius:2px;
 }
 
-/* ---------- layout shell ---------- */
+/* ---------- layout shell ----------
+   Side padding only. This must NOT use the padding shorthand: .wrap
+   is a class and section is an element, so a shorthand here would
+   win on specificity and wipe out every section's vertical padding. */
 .wrap{
   max-width:var(--maxw);
   margin:0 auto;
-  padding:0 28px;
+  padding-left:28px;
+  padding-right:28px;
 }
 
-/* ---------- nav ---------- */
+/* ---------- nav ----------
+   Solid background on purpose. A translucent bar lets the previous
+   section show through faintly as you jump between anchors. */
 header.site-nav{
   position:sticky; top:0; z-index:100;
   height:var(--nav-h);
   display:flex; align-items:center;
-  background:color-mix(in srgb, var(--bg) 85%, transparent);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
+  background:var(--bg);
   border-bottom:1px solid var(--border);
 }
 .nav-inner{
-  max-width:var(--maxw);
+  max-width:980px;
   margin:0 auto;
   width:100%;
   padding:0 28px;
   display:flex; align-items:center; justify-content:space-between;
-  gap:16px;
+  gap:56px;
 }
 .nav-mark{
   font-family:'Newsreader', serif;
-  font-weight:600;
-  font-size:1.02rem;
+  font-weight:500;
+  font-size:1rem;
   text-decoration:none;
   white-space:nowrap;
 }
 .nav-links{
-  display:flex; align-items:center; gap:20px;
+  display:flex; align-items:center; gap:26px;
   list-style:none; margin:0; padding:0;
 }
 .nav-links a{
-  font-size:0.85rem;
+  position:relative;
+  font-size:0.84rem;
   text-decoration:none;
   color:var(--text-muted);
-  position:relative;
   padding:4px 0;
   transition:color 0.15s ease;
 }
-.nav-links a:hover, .nav-links a.active{ color:var(--text); }
+.nav-links a:hover{ color:var(--text); }
+
+/* the section you are currently reading */
+.nav-links a.active{
+  color:var(--accent);
+  font-weight:600;
+}
 .nav-links a.active::after{
   content:"";
-  position:absolute; left:0; right:0; bottom:-2px;
-  height:2px; background:var(--accent);
+  position:absolute;
+  left:0; right:0; bottom:-2px;
+  height:2px;
+  background:var(--accent);
 }
 
 .theme-toggle{
   display:flex; align-items:center; justify-content:center;
-  width:32px; height:32px;
-  border-radius:7px;
+  width:30px; height:30px;
+  border-radius:4px;
   border:1px solid var(--border);
   background:transparent;
   cursor:pointer;
-  color:var(--text);
+  color:var(--text-muted);
   flex-shrink:0;
 }
-.theme-toggle:hover{ border-color:var(--accent); }
-.theme-toggle svg{ width:15px; height:15px; }
+.theme-toggle:hover{ color:var(--text); }
+.theme-toggle svg{ width:14px; height:14px; }
 .theme-toggle .icon-moon{ display:none; }
 html[data-theme="dark"] .theme-toggle .icon-sun{ display:none; }
 html[data-theme="dark"] .theme-toggle .icon-moon{ display:block; }
 
 .nav-toggle-btn{
   display:none;
-  width:32px; height:32px;
-  border-radius:7px;
+  width:30px; height:30px;
+  border-radius:4px;
   border:1px solid var(--border);
   background:transparent;
   align-items:center; justify-content:center;
   cursor:pointer;
-  color:var(--text);
+  color:var(--text-muted);
 }
 
-/* ---------- sections ---------- */
+/* ---------- sections ----------
+   scroll-margin-top = nav height + gap, minus the section's own top
+   padding, so the section HEADING lands just below the nav bar
+   instead of the section's empty padding. */
 section{
-  padding:84px 0;
-  scroll-margin-top:calc(var(--nav-h) + 28px);
+  padding-top:var(--section-pad);
+  padding-bottom:var(--section-pad);
+  scroll-margin-top:calc(var(--nav-h) + var(--anchor-gap) - var(--section-pad));
 }
 
+/* kept so writing.html does not break; now plain, no accent bar */
 .eyebrow{
   display:block;
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.72rem;
-  letter-spacing:0.14em;
+  font-size:0.8rem;
+  letter-spacing:0.04em;
   text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:16px;
-}
-.eyebrow::before{
-  content:"";
-  display:block;
-  width:30px; height:3px;
-  background:var(--accent);
-  border-radius:2px;
-  margin-bottom:14px;
+  color:var(--text-muted);
+  margin-bottom:10px;
 }
 
 h2.section-title{
   font-family:'Newsreader', serif;
   font-weight:500;
-  font-size:1.65rem;
-  margin:0 0 40px 0;
+  font-size:1.35rem;
+  margin:0 0 24px 0;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--border);
 }
 
-/* group label used to break a section into named subgroups
-   (e.g. Experience -> Research & Professional / Teaching / Leadership) */
 .group-label{
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.72rem;
-  letter-spacing:0.08em;
+  font-size:0.8rem;
+  letter-spacing:0.05em;
   text-transform:uppercase;
   color:var(--text-muted);
-  margin:0 0 20px 0;
+  margin:0 0 16px 0;
 }
-.group-label:not(:first-child){ margin-top:52px; }
+.group-label:not(:first-of-type){ margin-top:34px; }
 
-/* ---------- hero ---------- */
+/* ---------- hero / about ----------
+   The hero has its own larger top padding, so it needs its own
+   matching anchor offset. */
 .hero{
-  padding-top:96px;
+  padding-top:64px;
   display:grid;
   grid-template-columns: 1fr auto;
-  gap:40px;
+  gap:36px;
   align-items:start;
 }
+#about{ scroll-margin-top:calc(var(--nav-h) + var(--anchor-gap) - 64px); }
 .hero h1{
   font-family:'Newsreader', serif;
   font-weight:500;
-  font-size:3.2rem;
-  line-height:1.12;
-  margin:0 0 12px 0;
-  letter-spacing:-0.01em;
+  font-size:2.1rem;
+  line-height:1.2;
+  margin:0 0 8px 0;
 }
 .hero .role{
-  font-size:1.03rem;
+  font-size:0.97rem;
   color:var(--text-muted);
-  margin:0 0 26px 0;
+  line-height:1.5;
+  margin:0 0 22px 0;
 }
-.hero .bio{
-  font-size:1rem;
-  color:var(--text);
-  max-width:60ch;
-}
-.hero .bio p{ margin:0 0 16px 0; }
+.hero .bio{ font-size:1rem; }
+.hero .bio p{ margin:0 0 14px 0; }
 .hero .bio p:last-child{ margin-bottom:0; }
-.hero .bio a{ color:var(--accent); text-decoration:underline; text-underline-offset:2px; }
+
+.interest-line{
+  font-size:0.95rem;
+  color:var(--text-muted);
+  margin:18px 0 0 0;
+}
+.interest-line .label{ color:var(--text); font-weight:500; }
 
 /* profile photo */
 .portrait{
-  width:152px; height:152px;
-  border-radius:50%;
+  width:140px; height:140px;
+  border-radius:2px;
   object-fit:cover;
   flex-shrink:0;
   margin-top:6px;
@@ -212,82 +230,69 @@ h2.section-title{
 }
 
 .links-row{
-  display:flex; flex-wrap:wrap; gap:12px 22px;
-  margin-top:30px;
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.8rem;
+  display:flex; flex-wrap:wrap; gap:8px 20px;
+  margin-top:20px;
+  font-size:0.9rem;
 }
 .links-row a{
   color:var(--accent);
   text-decoration:underline;
-  text-decoration-color:color-mix(in srgb, var(--accent) 45%, transparent);
   text-underline-offset:3px;
-  transition:text-decoration-color 0.15s ease, opacity 0.15s ease;
 }
-.links-row a:hover{ text-decoration-color:var(--accent); opacity:0.8; }
+.links-row a:hover{ opacity:0.75; }
 
-/* ---------- research interests: plain inline list, no pills ---------- */
-.interest-list{
-  font-size:1.05rem;
-  color:var(--text);
-  line-height:2.3;
-  max-width:66ch;
-}
+/* kept for compatibility if used elsewhere */
+.interest-list{ font-size:1rem; max-width:66ch; }
 .interest-list .sep{ color:var(--border); }
 
 /* ---------- publications ---------- */
-.pub-list{ display:flex; flex-direction:column; }
-.pub{
-  padding:26px 0;
-  border-top:1px solid var(--border);
-}
-.pub:first-child{ border-top:none; padding-top:0; }
+.pub-list{ display:flex; flex-direction:column; gap:22px; }
 .pub-title{
-  font-family:'Newsreader', serif;
-  font-size:1.15rem;
-  font-weight:500;
-  line-height:1.4;
-  margin:0 0 8px 0;
+  font-size:1rem;
+  font-weight:600;
+  line-height:1.45;
+  margin:0 0 4px 0;
 }
 .pub-meta{
   font-size:0.88rem;
   color:var(--text-muted);
-  margin:0 0 12px 0;
+  margin:0 0 8px 0;
 }
-.pub-status{
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.72rem;
-  letter-spacing:0.05em;
-  text-transform:uppercase;
-  color:var(--accent);
-}
-.pub-venue{ color:var(--text); }
 .pub-abstract{
-  font-size:0.96rem;
+  font-size:0.94rem;
   color:var(--text);
-  max-width:66ch;
-  margin:0 0 12px 0;
+  margin:0 0 8px 0;
 }
 .pub-links{
-  display:flex; flex-wrap:wrap; gap:18px;
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.78rem;
+  display:flex; flex-wrap:wrap; gap:16px;
+  font-size:0.85rem;
+  margin:0;
 }
 .pub-links a{
   color:var(--accent);
   text-decoration:underline;
-  text-decoration-color:color-mix(in srgb, var(--accent) 45%, transparent);
   text-underline-offset:2px;
-  transition:text-decoration-color 0.15s ease, opacity 0.15s ease;
 }
-.pub-links a:hover{ text-decoration-color:var(--accent); opacity:0.8; }
-.pub-links .disabled{ color:var(--border); }
+.pub-links .disabled{ color:var(--text-muted); }
+/* legacy classes, kept so old markup still renders sensibly */
+.pub-status, .pub-venue{ color:inherit; }
 
 /* ---------- writing (writing.html) ---------- */
+.page-title{
+  font-family:'Newsreader', serif;
+  font-weight:500;
+  font-size:2.1rem;
+  line-height:1.2;
+  margin:0 0 8px 0;
+}
+.page-intro{
+  color:var(--text-muted);
+  margin:0 0 32px 0;
+}
 .writeup-list{ display:flex; flex-direction:column; }
 .writeup{
   display:block;
-  padding:24px 0;
+  padding:20px 0;
   border-top:1px solid var(--border);
   text-decoration:none;
   color:inherit;
@@ -297,185 +302,159 @@ h2.section-title{
   display:flex; justify-content:space-between; align-items:baseline; gap:16px;
 }
 .writeup-title{
-  font-family:'Newsreader', serif;
-  font-size:1.1rem;
-  font-weight:500;
+  font-size:1rem;
+  font-weight:600;
   margin:0;
   transition:color 0.15s ease;
 }
 .writeup:hover .writeup-title{ color:var(--accent); }
-.writeup-arrow{
-  flex-shrink:0;
-  color:var(--text-muted);
-  transition:transform 0.15s ease, color 0.15s ease;
-}
-.writeup:hover .writeup-arrow{ color:var(--accent); transform:translate(2px,-2px); }
+.writeup-arrow{ flex-shrink:0; color:var(--text-muted); }
 .writeup-meta{
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.76rem;
+  font-size:0.85rem;
   color:var(--text-muted);
-  margin:8px 0 10px 0;
+  margin:4px 0 8px 0;
 }
 .writeup-excerpt{
   font-size:0.93rem;
   color:var(--text-muted);
-  max-width:64ch;
   margin:0;
 }
 .writeup-tags{
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.72rem;
+  font-size:0.82rem;
   color:var(--text-muted);
-  margin-top:10px;
+  margin-top:8px;
 }
 .writeup-tags .sep{ color:var(--border); margin:0 8px; }
 
-/* ---------- entries: shared by experience / teaching / leadership / projects / prof. dev ---------- */
+/* ---------- entries: experience, teaching, projects ---------- */
 .entry{
   display:grid;
-  grid-template-columns: 148px 1fr;
+  grid-template-columns: 150px 1fr;
   gap:20px;
-  padding:24px 0;
-  border-top:1px solid var(--border);
+  margin-bottom:22px;
 }
-.entry:first-of-type{ border-top:none; padding-top:0; }
+.entry:last-of-type{ margin-bottom:0; }
 .entry-date{
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.78rem;
+  font-size:0.88rem;
   color:var(--text-muted);
-  padding-top:3px;
+  padding-top:1px;
 }
 .entry-title{
-  font-size:1rem;
+  font-size:0.98rem;
   font-weight:600;
-  margin:0 0 3px 0;
+  margin:0 0 2px 0;
 }
 .entry-org{
   font-size:0.9rem;
   color:var(--text-muted);
-  margin:0 0 12px 0;
+  margin:0 0 6px 0;
 }
-.entry ul{
-  margin:0; padding-left:20px;
+.entry-note{
   font-size:0.93rem;
+  margin:0;
 }
-.entry li{ margin-bottom:8px; }
-.entry li:last-child{ margin-bottom:0; }
-.entry-tools{
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.78rem;
-  color:var(--text-muted);
-  margin:12px 0 0 0;
-}
+/* kept in case any old bullet markup remains */
+.entry ul{ margin:6px 0 0 0; padding-left:18px; font-size:0.93rem; }
+.entry li{ margin-bottom:5px; }
+.entry-tools{ font-size:0.85rem; color:var(--text-muted); margin:8px 0 0 0; }
 
-/* ---------- awards / posters: plain list ---------- */
-.line-list{ list-style:none; margin:0; padding:0; }
-.line-list li{
-  display:flex; gap:14px;
-  padding:16px 0;
-  border-top:1px solid var(--border);
-  font-size:0.95rem;
+/* ---------- plain lists: honors, training ---------- */
+.line-list{
+  list-style:none;
+  margin:0; padding:0;
+  font-size:0.94rem;
 }
-.line-list li:first-child{ border-top:none; padding-top:0; }
-.line-list .dot{ color:var(--accent); flex-shrink:0; }
+.line-list li{
+  position:relative;
+  padding:0 0 10px 20px;
+}
+.line-list li:last-child{ padding-bottom:0; }
+.line-list li::before{
+  content:"\2022";
+  position:absolute; left:2px;
+  color:var(--text-muted);
+}
+.line-list .dot{ display:none; }
 .line-list .cert-link{
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.76rem;
+  font-size:0.85rem;
   color:var(--accent);
   text-decoration:underline;
-  text-decoration-color:color-mix(in srgb, var(--accent) 45%, transparent);
   text-underline-offset:2px;
-  margin-left:8px;
+  margin-left:6px;
   white-space:nowrap;
-  transition:text-decoration-color 0.15s ease, opacity 0.15s ease;
 }
-.line-list .cert-link:hover{ text-decoration-color:var(--accent); opacity:0.8; }
+.line-list .cert-link:hover{ opacity:0.75; }
 
 /* ---------- education ---------- */
-.edu{
-  padding:26px 0;
-  border-top:1px solid var(--border);
-}
-.edu:first-of-type{ border-top:none; padding-top:0; }
-.edu-school{ font-family:'Newsreader', serif; font-size:1.1rem; font-weight:500; margin:0; }
-.edu-degree{ font-size:0.92rem; color:var(--text-muted); margin:3px 0 6px 0; }
-.edu-meta{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--text-muted); margin-bottom:14px; }
-.edu ul{ margin:0; padding-left:20px; font-size:0.93rem; }
-.edu li{ margin-bottom:6px; }
-.edu li:last-child{ margin-bottom:0; }
+.edu{ margin-bottom:22px; }
+.edu-school{ font-size:1rem; font-weight:600; margin:0; }
+.edu-degree{ font-size:0.9rem; color:var(--text-muted); margin:2px 0 6px 0; }
+.edu-note{ font-size:0.93rem; margin:0; }
+/* legacy */
+.edu-meta{ font-size:0.88rem; color:var(--text-muted); margin-bottom:10px; }
+.edu ul{ margin:0; padding-left:18px; font-size:0.93rem; }
+.edu li{ margin-bottom:5px; }
 
 /* ---------- contact / footer ---------- */
-.contact-row{
-  display:flex; flex-wrap:wrap; gap:26px;
-  margin-top:14px;
+.contact-note{
+  font-size:0.96rem;
+  color:var(--text-muted);
+  margin:0;
 }
+.contact-row{ display:flex; flex-wrap:wrap; gap:22px; margin-top:14px; }
 .contact-row a{
   color:var(--accent);
-  font-size:0.96rem;
+  font-size:0.94rem;
   text-decoration:underline;
-  text-decoration-color:color-mix(in srgb, var(--accent) 45%, transparent);
   text-underline-offset:3px;
-  transition:text-decoration-color 0.15s ease, opacity 0.15s ease;
 }
-.contact-row a:hover{ text-decoration-color:var(--accent); opacity:0.8; }
 
-footer{ padding:48px 0 64px 0; }
+footer{
+  padding-top:28px;
+  padding-bottom:44px;
+  border-top:1px solid var(--border);
+  margin-top:36px;
+}
 footer .foot-inner{
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-  font-family:'JetBrains Mono', monospace;
-  font-size:0.74rem;
+  font-size:0.85rem;
   color:var(--text-muted);
 }
 
-/* extra breathing room after the last section, before the footer */
-#contact{ padding-bottom:150px; }
+#contact{ padding-bottom:40px; }
 
-/* ---------- responsive ----------
-   Tiers:
-   > 900px  desktop, full nav row
-   641-900  tablet / small laptop: nav collapses to the hamburger menu
-            (the full 9-item nav no longer reliably fits the 760px
-            content column once the viewport itself is under ~900px)
-   <= 640   phone: hero and entries stack to a single column, type
-            and spacing scale down
-   <= 380   small phone: extra breathing room removed, nothing else
-            changes structurally
------------------------------------------------------------------- */
-@media (max-width: 900px){
+/* ---------- responsive ---------- */
+@media (max-width: 1000px){
   .nav-links{
     position:fixed; top:var(--nav-h); left:0; right:0;
     flex-direction:column; align-items:flex-start;
     background:var(--bg); border-bottom:1px solid var(--border);
-    padding:18px 22px; gap:16px;
-    transform:translateY(-8px);
+    padding:18px 22px; gap:14px;
     opacity:0; visibility:hidden;
-    transition:opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+    transition:opacity 0.15s ease, visibility 0.15s;
     max-height:calc(100vh - var(--nav-h));
     overflow-y:auto;
   }
-  .nav-links.open{ opacity:1; visibility:visible; transform:translateY(0); }
+  .nav-links.open{ opacity:1; visibility:visible; }
   .nav-toggle-btn{ display:flex; }
+  /* underline reads badly in a stacked menu */
+  .nav-links a.active::after{ display:none; }
 }
 
 @media (max-width: 640px){
+  :root{ --section-pad:40px; }
   .wrap, .nav-inner{ padding-left:22px; padding-right:22px; }
-  section{ padding:64px 0; }
-  .hero{ grid-template-columns:1fr; padding-top:56px; }
-  .portrait{ width:104px; height:104px; order:-1; }
-  .hero h1{ font-size:2.1rem; }
-  h2.section-title{ font-size:1.4rem; margin-bottom:28px; }
-  .entry{ grid-template-columns:1fr; gap:6px; }
-  .edu-meta{ line-height:1.6; }
-  .line-list li{ flex-wrap:wrap; }
-  .writeup-head{ flex-wrap:wrap; gap:8px; }
+  .hero{ grid-template-columns:1fr; padding-top:40px; gap:22px; }
+  #about{ scroll-margin-top:calc(var(--nav-h) + var(--anchor-gap) - 40px); }
+  .portrait{ width:100px; height:100px; order:-1; }
+  .hero h1, .page-title{ font-size:1.75rem; }
+  h2.section-title{ font-size:1.2rem; margin-bottom:20px; }
+  .entry{ grid-template-columns:1fr; gap:2px; }
+  .entry-date{ order:-1; }
 }
 
 @media (max-width: 380px){
   .wrap, .nav-inner{ padding-left:16px; padding-right:16px; }
-  section{ padding:48px 0; }
-  .hero{ padding-top:44px; }
-  .hero h1{ font-size:1.8rem; }
-  .hero .role{ font-size:0.95rem; }
+  .hero h1, .page-title{ font-size:1.55rem; }
   .nav-mark{ font-size:0.92rem; }
-  .pub-title{ font-size:1.05rem; }
 }
