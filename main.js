@@ -1,7 +1,6 @@
 /* ============================================================
    main.js
    Shared behavior for every page on the site.
-   Handles four things:
      1. dark / light theme toggle, remembered between visits
      2. mobile hamburger menu
      3. highlighting the nav link for the section you are reading
@@ -101,17 +100,7 @@
     });
   }
 
-  /* ---------- 3. active nav link while scrolling ----------
-     Rules this needs to follow:
-       - the highlighted link is the section whose heading has passed
-         under the nav bar, which is the LAST such section, not the
-         first one still on screen
-       - at the very bottom of the page the final section wins even
-         if it is too short to fill the viewport
-       - clicking a nav link jumps the highlight straight to that
-         link, instead of lighting up every link the smooth scroll
-         passes through on the way
-  */
+  /* ---------- 3. active nav link while scrolling ---------- */
   var sections = Array.prototype.slice.call(document.querySelectorAll("main section[id]"));
   var anchors = navLinks
     ? Array.prototype.slice.call(navLinks.querySelectorAll('a[href*="#"]'))
@@ -145,7 +134,7 @@
     }
 
     function currentId() {
-      // At the bottom of the document, the last section always wins.
+      // At the bottom of the document the last section always wins.
       // Without this, a short final section can never push the one
       // above it out of view, so the wrong link stays highlighted.
       var atBottom =
@@ -192,7 +181,6 @@
       pinnedId = hash;
       setActive(hash);
       clearTimeout(idleTimer);
-      // Fallback in case no scroll happens at all (already in place).
       idleTimer = setTimeout(function () {
         pinnedId = null;
       }, 1200);
@@ -208,7 +196,6 @@
       });
     });
 
-    // Same when arriving with a hash already in the URL.
     if (!window.location.hash || !pinTo(window.location.hash.slice(1))) {
       setActive(currentId());
     }

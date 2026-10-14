@@ -5,14 +5,12 @@
   --border:#e3e3e0;
   --accent:#14554a;
   --nav-h:60px;
-  --maxw:760px;
+  --maxw:860px;
 
-  /* Top and bottom padding on each section. The anchor offset below
-     is derived from this, so change it here and jump-to-section
-     scrolling stays correct. */
-  --section-pad:52px;
-  /* Gap left between the nav bar and a section heading after a jump. */
+  --section-pad:38px;
   --anchor-gap:20px;
+  /* width of the date column in Experience, Awards, Education */
+  --date-col:92px;
 }
 html[data-theme="dark"]{
   --bg:#101315;
@@ -34,14 +32,15 @@ body{
   background:var(--bg);
   color:var(--text);
   font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size:16px;
-  line-height:1.65;
+  font-size:15.5px;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
   transition:background 0.2s ease, color 0.2s ease;
   overflow-wrap:break-word;
 }
 
-a{ color:inherit; }
+a{ color:var(--accent); }
+a:hover{ opacity:0.75; }
 
 .skip-link{
   position:absolute; left:-9999px; top:0;
@@ -56,9 +55,9 @@ a{ color:inherit; }
 }
 
 /* ---------- layout shell ----------
-   Side padding only. This must NOT use the padding shorthand: .wrap
-   is a class and section is an element, so a shorthand here would
-   win on specificity and wipe out every section's vertical padding. */
+   Side padding only. Must not use the padding shorthand: .wrap is a
+   class and section is an element, so a shorthand here would win on
+   specificity and wipe out every section's vertical padding. */
 .wrap{
   max-width:var(--maxw);
   margin:0 auto;
@@ -66,9 +65,7 @@ a{ color:inherit; }
   padding-right:28px;
 }
 
-/* ---------- nav ----------
-   Solid background on purpose. A translucent bar lets the previous
-   section show through faintly as you jump between anchors. */
+/* ---------- nav ---------- */
 header.site-nav{
   position:sticky; top:0; z-index:100;
   height:var(--nav-h);
@@ -89,6 +86,7 @@ header.site-nav{
   font-weight:500;
   font-size:1rem;
   text-decoration:none;
+  color:var(--text);
   white-space:nowrap;
 }
 .nav-links{
@@ -103,9 +101,8 @@ header.site-nav{
   padding:4px 0;
   transition:color 0.15s ease;
 }
-.nav-links a:hover{ color:var(--text); }
+.nav-links a:hover{ color:var(--text); opacity:1; }
 
-/* the section you are currently reading */
 .nav-links a.active{
   color:var(--accent);
   font-weight:600;
@@ -147,15 +144,31 @@ html[data-theme="dark"] .theme-toggle .icon-moon{ display:block; }
 
 /* ---------- sections ----------
    scroll-margin-top = nav height + gap, minus the section's own top
-   padding, so the section HEADING lands just below the nav bar
-   instead of the section's empty padding. */
+   padding, so the HEADING lands just below the nav bar. */
 section{
   padding-top:var(--section-pad);
   padding-bottom:var(--section-pad);
   scroll-margin-top:calc(var(--nav-h) + var(--anchor-gap) - var(--section-pad));
 }
 
-/* kept so writing.html does not break; now plain, no accent bar */
+h2.section-title{
+  font-family:'Newsreader', serif;
+  font-weight:500;
+  font-size:1.25rem;
+  margin:0 0 18px 0;
+  padding-bottom:7px;
+  border-bottom:1px solid var(--border);
+}
+
+.group-label{
+  font-size:0.78rem;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin:26px 0 12px 0;
+}
+
+/* kept so older markup and writing.html do not break */
 .eyebrow{
   display:block;
   font-size:0.8rem;
@@ -165,134 +178,155 @@ section{
   margin-bottom:10px;
 }
 
-h2.section-title{
-  font-family:'Newsreader', serif;
-  font-weight:500;
-  font-size:1.35rem;
-  margin:0 0 24px 0;
-  padding-bottom:8px;
-  border-bottom:1px solid var(--border);
-}
-
-.group-label{
-  font-size:0.8rem;
-  letter-spacing:0.05em;
-  text-transform:uppercase;
-  color:var(--text-muted);
-  margin:0 0 16px 0;
-}
-.group-label:not(:first-of-type){ margin-top:34px; }
-
-/* ---------- hero / about ----------
-   The hero has its own larger top padding, so it needs its own
-   matching anchor offset. */
-.hero{
-  padding-top:64px;
+/* ---------- intro block ---------- */
+.intro{
+  padding-top:52px;
   display:grid;
   grid-template-columns: 1fr auto;
-  gap:36px;
+  gap:40px;
   align-items:start;
 }
-#about{ scroll-margin-top:calc(var(--nav-h) + var(--anchor-gap) - 64px); }
-.hero h1{
+#top{ scroll-margin-top:calc(var(--nav-h) + var(--anchor-gap) - 52px); }
+.intro h1{
   font-family:'Newsreader', serif;
   font-weight:500;
-  font-size:2.1rem;
+  font-size:2rem;
   line-height:1.2;
-  margin:0 0 8px 0;
+  margin:0 0 14px 0;
 }
-.hero .role{
-  font-size:0.97rem;
-  color:var(--text-muted);
-  line-height:1.5;
-  margin:0 0 22px 0;
+.intro-text{
+  margin:0 0 12px 0;
+  max-width:60ch;
 }
-.hero .bio{ font-size:1rem; }
-.hero .bio p{ margin:0 0 14px 0; }
-.hero .bio p:last-child{ margin-bottom:0; }
+.link-line{
+  margin:16px 0 0 0;
+  display:flex; flex-wrap:wrap; gap:6px 18px;
+  font-size:0.92rem;
+}
+.link-line a{
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
 
-.interest-line{
-  font-size:0.95rem;
-  color:var(--text-muted);
-  margin:18px 0 0 0;
-}
-.interest-line .label{ color:var(--text); font-weight:500; }
-
-/* profile photo */
 .portrait{
-  width:140px; height:140px;
+  width:170px;
+  height:auto;
   border-radius:2px;
   object-fit:cover;
   flex-shrink:0;
-  margin-top:6px;
   border:1px solid var(--border);
   background:var(--bg);
 }
 
-.links-row{
-  display:flex; flex-wrap:wrap; gap:8px 20px;
-  margin-top:20px;
-  font-size:0.9rem;
-}
-.links-row a{
-  color:var(--accent);
-  text-decoration:underline;
-  text-underline-offset:3px;
-}
-.links-row a:hover{ opacity:0.75; }
-
-/* kept for compatibility if used elsewhere */
-.interest-list{ font-size:1rem; max-width:66ch; }
-.interest-list .sep{ color:var(--border); }
-
-/* ---------- publications ---------- */
-.pub-list{ display:flex; flex-direction:column; gap:22px; }
-.pub-title{
-  font-size:1rem;
-  font-weight:600;
-  line-height:1.45;
-  margin:0 0 4px 0;
-}
-.pub-meta{
-  font-size:0.88rem;
-  color:var(--text-muted);
-  margin:0 0 8px 0;
-}
-.pub-abstract{
+/* ---------- updates ---------- */
+.update-list{
+  list-style:none;
+  margin:0; padding:0;
   font-size:0.94rem;
-  color:var(--text);
-  margin:0 0 8px 0;
 }
-.pub-links{
-  display:flex; flex-wrap:wrap; gap:16px;
-  font-size:0.85rem;
+.update-list li{
+  display:grid;
+  grid-template-columns: var(--date-col) 1fr;
+  gap:14px;
+  margin-bottom:9px;
+}
+.update-list li:last-child{ margin-bottom:0; }
+.update-date{
+  color:var(--text-muted);
+  font-size:0.88rem;
+}
+
+/* ---------- research blurb / plain paragraphs ---------- */
+.research-note{
   margin:0;
+  max-width:68ch;
 }
-.pub-links a{
-  color:var(--accent);
+
+/* ---------- publications and other work ---------- */
+.pub{
+  display:grid;
+  grid-template-columns: 180px 1fr;
+  gap:22px;
+  align-items:start;
+  margin-bottom:26px;
+}
+/* a .pub with no thumbnail collapses to one column */
+.pub:not(:has(.pub-thumb)){ grid-template-columns:1fr; }
+.pub:last-of-type{ margin-bottom:0; }
+.pub-thumb img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid var(--border);
+  border-radius:2px;
+}
+.pub-title{
+  font-size:0.98rem;
+  font-weight:600;
+  line-height:1.4;
+  margin:0 0 3px 0;
+}
+.pub-authors{
+  font-size:0.92rem;
+  color:var(--text-muted);
+  margin:0 0 2px 0;
+}
+.pub-authors strong{ color:var(--text); font-weight:600; }
+.pub-venue{
+  font-size:0.9rem;
+  color:var(--text-muted);
+  margin:0 0 7px 0;
+}
+.pub-venue a{
   text-decoration:underline;
   text-underline-offset:2px;
 }
-.pub-links .disabled{ color:var(--text-muted); }
-/* legacy classes, kept so old markup still renders sensibly */
-.pub-status, .pub-venue{ color:inherit; }
+.pub-note{
+  font-size:0.92rem;
+  margin:0;
+  max-width:62ch;
+}
+
+/* ---------- compact date lists: experience, awards, education ---------- */
+.compact-list{
+  list-style:none;
+  margin:0; padding:0;
+  font-size:0.94rem;
+}
+.compact-list li{
+  display:grid;
+  grid-template-columns: var(--date-col) 1fr;
+  gap:14px;
+  margin-bottom:10px;
+}
+.compact-list li:last-child{ margin-bottom:0; }
+.cl-date{
+  color:var(--text-muted);
+  font-size:0.88rem;
+}
+.cert-link{
+  font-size:0.85rem;
+  text-decoration:underline;
+  text-underline-offset:2px;
+  white-space:nowrap;
+}
 
 /* ---------- writing (writing.html) ---------- */
 .page-title{
   font-family:'Newsreader', serif;
   font-weight:500;
-  font-size:2.1rem;
+  font-size:2rem;
   line-height:1.2;
   margin:0 0 8px 0;
 }
 .page-intro{
   color:var(--text-muted);
-  margin:0 0 32px 0;
+  margin:0 0 28px 0;
 }
 .writeup-list{ display:flex; flex-direction:column; }
 .writeup{
   display:block;
-  padding:20px 0;
+  padding:18px 0;
   border-top:1px solid var(--border);
   text-decoration:none;
   color:inherit;
@@ -326,102 +360,18 @@ h2.section-title{
 }
 .writeup-tags .sep{ color:var(--border); margin:0 8px; }
 
-/* ---------- entries: experience, teaching, projects ---------- */
-.entry{
-  display:grid;
-  grid-template-columns: 150px 1fr;
-  gap:20px;
-  margin-bottom:22px;
-}
-.entry:last-of-type{ margin-bottom:0; }
-.entry-date{
-  font-size:0.88rem;
-  color:var(--text-muted);
-  padding-top:1px;
-}
-.entry-title{
-  font-size:0.98rem;
-  font-weight:600;
-  margin:0 0 2px 0;
-}
-.entry-org{
-  font-size:0.9rem;
-  color:var(--text-muted);
-  margin:0 0 6px 0;
-}
-.entry-note{
-  font-size:0.93rem;
-  margin:0;
-}
-/* kept in case any old bullet markup remains */
-.entry ul{ margin:6px 0 0 0; padding-left:18px; font-size:0.93rem; }
-.entry li{ margin-bottom:5px; }
-.entry-tools{ font-size:0.85rem; color:var(--text-muted); margin:8px 0 0 0; }
-
-/* ---------- plain lists: honors, training ---------- */
-.line-list{
-  list-style:none;
-  margin:0; padding:0;
-  font-size:0.94rem;
-}
-.line-list li{
-  position:relative;
-  padding:0 0 10px 20px;
-}
-.line-list li:last-child{ padding-bottom:0; }
-.line-list li::before{
-  content:"\2022";
-  position:absolute; left:2px;
-  color:var(--text-muted);
-}
-.line-list .dot{ display:none; }
-.line-list .cert-link{
-  font-size:0.85rem;
-  color:var(--accent);
-  text-decoration:underline;
-  text-underline-offset:2px;
-  margin-left:6px;
-  white-space:nowrap;
-}
-.line-list .cert-link:hover{ opacity:0.75; }
-
-/* ---------- education ---------- */
-.edu{ margin-bottom:22px; }
-.edu-school{ font-size:1rem; font-weight:600; margin:0; }
-.edu-degree{ font-size:0.9rem; color:var(--text-muted); margin:2px 0 6px 0; }
-.edu-note{ font-size:0.93rem; margin:0; }
-/* legacy */
-.edu-meta{ font-size:0.88rem; color:var(--text-muted); margin-bottom:10px; }
-.edu ul{ margin:0; padding-left:18px; font-size:0.93rem; }
-.edu li{ margin-bottom:5px; }
-
-/* ---------- contact / footer ---------- */
-.contact-note{
-  font-size:0.96rem;
-  color:var(--text-muted);
-  margin:0;
-}
-.contact-row{ display:flex; flex-wrap:wrap; gap:22px; margin-top:14px; }
-.contact-row a{
-  color:var(--accent);
-  font-size:0.94rem;
-  text-decoration:underline;
-  text-underline-offset:3px;
-}
-
+/* ---------- footer ---------- */
 footer{
-  padding-top:28px;
-  padding-bottom:44px;
+  padding-top:24px;
+  padding-bottom:40px;
   border-top:1px solid var(--border);
-  margin-top:36px;
+  margin-top:30px;
 }
 footer .foot-inner{
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-  font-size:0.85rem;
+  font-size:0.84rem;
   color:var(--text-muted);
 }
-
-#contact{ padding-bottom:40px; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1000px){
@@ -437,24 +387,24 @@ footer .foot-inner{
   }
   .nav-links.open{ opacity:1; visibility:visible; }
   .nav-toggle-btn{ display:flex; }
-  /* underline reads badly in a stacked menu */
   .nav-links a.active::after{ display:none; }
 }
 
 @media (max-width: 640px){
-  :root{ --section-pad:40px; }
+  :root{ --section-pad:30px; --date-col:76px; }
   .wrap, .nav-inner{ padding-left:22px; padding-right:22px; }
-  .hero{ grid-template-columns:1fr; padding-top:40px; gap:22px; }
-  #about{ scroll-margin-top:calc(var(--nav-h) + var(--anchor-gap) - 40px); }
-  .portrait{ width:100px; height:100px; order:-1; }
-  .hero h1, .page-title{ font-size:1.75rem; }
-  h2.section-title{ font-size:1.2rem; margin-bottom:20px; }
-  .entry{ grid-template-columns:1fr; gap:2px; }
-  .entry-date{ order:-1; }
+  .intro{ grid-template-columns:1fr; padding-top:34px; gap:20px; }
+  #top{ scroll-margin-top:calc(var(--nav-h) + var(--anchor-gap) - 34px); }
+  .portrait{ width:118px; order:-1; }
+  .intro h1, .page-title{ font-size:1.65rem; }
+  h2.section-title{ font-size:1.12rem; }
+  .pub{ grid-template-columns:1fr; gap:12px; }
+  .pub-thumb{ max-width:260px; }
+  .update-list li, .compact-list li{ grid-template-columns:1fr; gap:1px; }
 }
 
 @media (max-width: 380px){
   .wrap, .nav-inner{ padding-left:16px; padding-right:16px; }
-  .hero h1, .page-title{ font-size:1.55rem; }
+  .intro h1, .page-title{ font-size:1.5rem; }
   .nav-mark{ font-size:0.92rem; }
 }
