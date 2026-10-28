@@ -4,21 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sosna Worku Achamyeleh</title>
-<meta name="description" content="Sosna Worku Achamyeleh, MS student in AI/ML at George Washington University, working on reliability and interpretability of vision and multimodal models.">
+<meta name="description" content="Sosna Worku Achamyeleh, MS student in AI/ML at George Washington University, researching whether model confidence and explanations can be trusted under distribution shift.">
 
 <!-- ============================================================
      HOW TO UPDATE THIS SITE
 
-     PLACEHOLDERS TO FILL IN FIRST (search for REPLACE):
-       - Google Scholar profile URL
-       - arXiv link for the stress detection preprint
+     PLACEHOLDER: search for PASTE_SCHOLAR_URL_HERE and
+     PASTE_ARXIV_URL_HERE to switch those links on.
 
      To add content, find the matching comment and copy the
      block above it:
        "ADD UPDATE HERE"       -> new news item (keep 3 to 5 total)
        "ADD PUBLICATION HERE"  -> new paper
+       "ADD PROJECT HERE"      -> new project
        "ADD EXPERIENCE HERE"   -> new role
        "ADD AWARD HERE"        -> new award
+       "ADD TALK HERE"         -> new talk or poster
      Keep every entry to one or two lines. Detail goes in the CV.
      ============================================================ -->
 
@@ -31,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=15">
+<link rel="stylesheet" href="styles.css?v=19">
 </head>
 <body>
 
@@ -68,7 +69,7 @@
       <h1>Sosna Worku Achamyeleh</h1>
       <p class="intro-text">MS student in Artificial Intelligence and Machine Learning at
         <a href="https://www.gwu.edu/" target="_blank" rel="noopener">The George Washington University</a>,
-        where I work on the reliability and interpretability of vision and multimodal models.
+        advised by <a href="https://www.seas.gwu.edu/xiaodong-qu" target="_blank" rel="noopener">Xiaodong Qu</a>.
         Black in Robotics + 3M Tuition Fellow. Previously BSc in Software Engineering at Addis Ababa University.</p>
       <p class="intro-text">I am applying to PhD programs for Fall 2027.</p>
       <p class="link-line">
@@ -79,7 +80,7 @@
         <a href="https://orcid.org/0009-0001-4757-1359" target="_blank" rel="noopener">ORCID</a>
         <a href="https://github.com/sossyh" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/sosna-achamyeleh/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="./cv.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="./cv.pdf?v=2026-10" target="_blank" rel="noopener">CV</a>
       </p>
     </div>
     <img class="portrait" src="photo.png" alt="Portrait of Sosna Worku Achamyeleh" width="170" height="210">
@@ -90,9 +91,9 @@
     <h2 class="section-title">Updates</h2>
     <ul class="update-list">
       <!-- ============ ADD UPDATE HERE (copy this whole <li>, newest first) ============ -->
-      <li><span class="update-date">Oct 2026</span><span>Preprint on benchmarking classical and transformer NLP models for stress detection is on arXiv.</span></li>
-      <li><span class="update-date">Sep 2026</span><span>Started my master's thesis with <a href="https://www.seas.gwu.edu/xiaodong-qu" target="_blank" rel="noopener">Xiaodong Qu</a> on reliability and explainability of vision and brain foundation models for EEG.</span></li>
-      <li><span class="update-date">Apr 2026</span><span>Presented a poster at the GWU SEAS Research and Development Showcase.</span></li>
+      <li><span class="update-date">Oct 2026</span><span>Gave an oral presentation at MICAD 2026 in Edinburgh on reliability and explainability of vision transformers under medical distribution shift.</span></li>
+      <li><span class="update-date">Sep 2026</span><span>Submitted a paper on estimating Viterbi decoding accuracy to ICAART 2027, and a thesis proposal on trustworthy EEG decoding to HCII 2027.</span></li>
+      <li><span class="update-date">Aug 2026</span><span>Started my master's thesis on whether domain-specific pretraining makes EEG decoding more trustworthy for unseen users.</span></li>
       <!-- ============ END ADD UPDATE HERE ============ -->
     </ul>
   </section>
@@ -100,105 +101,157 @@
   <!-- ============================ RESEARCH ============================ -->
   <section id="research" class="wrap">
     <h2 class="section-title">Research</h2>
-    <p class="research-note">I study whether deep learning models stay reliable when the data they meet
-      no longer looks like the data they were trained on. My work asks what happens to calibration,
-      uncertainty, and explanation quality under distribution shift, across medical imaging and EEG.
-      I am interested in vision foundation models, multimodal learning, and representation learning.</p>
+    <p class="research-note">I work on whether a model's confidence and explanations can be trusted once the data
+      shifts. That question runs through chest X-rays across hospitals, EEG decoding for unseen users, and
+      representation analysis linking deep networks to visual cortex.</p>
+    <p class="research-note" style="margin-top:12px;"><strong>Interests:</strong> trustworthy AI, distribution shift
+      and robustness, uncertainty quantification and calibration, explainability, foundation models,
+      representation analysis, multimodal learning.</p>
   </section>
 
   <!-- ============================ PUBLICATIONS ============================ -->
   <section id="publications" class="wrap">
-    <h2 class="section-title">Publications</h2>
+    <h2 class="section-title">Publications and Manuscripts</h2>
 
     <!-- ============ ADD PUBLICATION HERE (copy this whole .pub block) ============
-         The thumbnail is optional. Drop a 600x400ish image in the repo and
-         point src at it, or delete the <div class="pub-thumb"> block entirely
-         and the text will take the full width.
+         The thumbnail is optional. Drop a figure in the repo and point src at it,
+         or delete the <div class="pub-thumb"> block and the text takes full width.
     -->
     <div class="pub">
       <div class="pub-thumb">
-        <img src="paper-cxr.png" alt="Chest X-ray reliability study figure" loading="lazy">
+        <img src="paper-cxr.png" alt="ViT attention maps on in-distribution and out-of-distribution chest X-rays" loading="lazy">
       </div>
       <div>
-        <p class="pub-title">Reliability and Explainability of Vision Transformers Under Medical Distribution Shift</p>
+        <p class="pub-title">Reliability and Explainability of Vision Transformers Under Medical Distribution Shift: A Comparative Study on Chest X-Ray Classification</p>
         <p class="pub-authors"><strong>Sosna W. Achamyeleh</strong></p>
-        <p class="pub-venue">MICAD 2026, under review</p>
-        <p class="pub-note">ViTs beat CNNs in distribution but degrade faster under shift, calibration fails for both,
-          and GradCAM and attention rollout localize poorly exactly when the explanation matters most.</p>
+        <p class="pub-venue">MICAD 2026, Edinburgh &middot; Oral presentation &middot; <a href="https://github.com/sossyh" target="_blank" rel="noopener">code</a></p>
+        <p class="pub-note">The ViT wins in distribution (0.800 vs 0.745 AUC) but both models degrade across hospitals,
+          calibration error rises roughly sixfold, and MC-Dropout flags nothing useful.</p>
       </div>
     </div>
 
     <div class="pub">
       <div class="pub-thumb">
-        <img src="paper-stress.png" alt="Stress detection benchmarking figure" loading="lazy">
+        <img src="paper-viterbi.png" alt="Hyperparameter tuning results for the Viterbi accuracy estimator" loading="lazy">
       </div>
       <div>
-        <p class="pub-title">Benchmarking Classical and Transformer-Based NLP Models for Stress Detection</p>
+        <p class="pub-title">Estimating Viterbi Decoding Accuracy Using Emission and Transition Similarity</p>
+        <p class="pub-authors"><strong>Sosna W. Achamyeleh</strong>, R. Ma, A. Arora</p>
+        <p class="pub-venue">Submitted to ICAART 2027</p>
+        <p class="pub-note">Predicts decoding accuracy without running Viterbi. Adding transition similarity to the
+          emission-only estimator cuts error by about 28% across 189 HMMs.</p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <img src="paper-subtrust.png" alt="SubTrust experimental pipeline" loading="lazy">
+      </div>
+      <div>
+        <p class="pub-title">SubTrust: Does Domain-Specific Pretraining Make EEG Decoding More Trustworthy for Unseen Users?</p>
         <p class="pub-authors"><strong>Sosna W. Achamyeleh</strong></p>
+        <p class="pub-venue">Proposal submitted to HCII 2027, AI in HCI track &middot; <a href="https://github.com/sossyh" target="_blank" rel="noopener">code</a></p>
+        <p class="pub-note">Compares ViT-B/16, LaBraM, and EEGNet on unseen subjects, scoring calibration and selective
+          prediction rather than accuracy alone, plus a saliency plausibility measure.</p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <img src="paper-stress.png" alt="Reliability diagrams for DistilBERT before and after temperature scaling" loading="lazy">
+      </div>
+      <div>
+        <p class="pub-title">Transformers Are More Accurate but More Confidently Wrong in Stress Detection on Reddit</p>
+        <p class="pub-authors"><strong>Sosna W. Achamyeleh</strong>, P. P. Saralebettu, S. M. Prabhakara</p>
         <!-- Once arXiv announces the paper you get an id like arXiv:2610.01234.
              Uncomment the link below and paste https://arxiv.org/abs/<that id>. -->
-        <p class="pub-venue">Preprint, 2026<!-- &middot; <a href="PASTE_ARXIV_URL_HERE" target="_blank" rel="noopener">arXiv</a> --></p>
-        <p class="pub-note">DistilBERT reaches 0.793 macro F1 on Dreaddit against classical baselines, evaluated across
-          six stratified splits with McNemar, Wilcoxon, and Nadeau-Bengio tests.</p>
+        <p class="pub-venue">Manuscript, 2026<!-- &middot; <a href="PASTE_ARXIV_URL_HERE" target="_blank" rel="noopener">arXiv</a> --></p>
+        <p class="pub-note">DistilBERT beats classical baselines on Dreaddit at 0.793 macro F1, yet is worse calibrated
+          than the models it outperforms.</p>
       </div>
     </div>
     <!-- ============ END ADD PUBLICATION HERE ============ -->
   </section>
 
-  <!-- ============================ PROJECTS ============================ -->
+  <!-- ============================ OTHER PROJECTS ============================ -->
   <section id="projects" class="wrap">
-    <h2 class="section-title">Other Work</h2>
+    <h2 class="section-title">Other Research Projects</h2>
 
+    <!-- ============ ADD PROJECT HERE (copy this whole .pub block) ============ -->
     <div class="pub">
+      <div class="pub-thumb">
+        <img src="project-ffa.png" alt="Ablating face-selective units in AlexNet fc7" loading="lazy">
+      </div>
       <div>
-        <p class="pub-title">Face-Selective Visual Information and Deep Network Ablation</p>
-        <p class="pub-venue">Neuromatch Academy, 2026</p>
-        <p class="pub-note">Voxel-wise encoding models linking pretrained vision features to fMRI responses from
-          Algonauts 2021, comparing AlexNet and a face-specialized ResNet-50 under targeted unit ablation.</p>
+        <p class="pub-title">Investigating Face-Selective Visual Information Using Deep Neural Network Ablation</p>
+        <p class="pub-venue">Neuromatch Academy, 2026 &middot; six-person team</p>
+        <p class="pub-note">Built voxel-wise encoding models across nine visual regions. Ablating the 50 most
+          face-selective AlexNet units hurt fusiform prediction far more than matched controls.</p>
       </div>
     </div>
 
     <div class="pub">
+      <div class="pub-thumb">
+        <img src="project-voiceshield.png" alt="VoiceShield real-time Amharic threat prediction interface" loading="lazy">
+      </div>
       <div>
-        <p class="pub-title">Threat Detection in Spoken Amharic</p>
-        <p class="pub-venue">Addis Ababa University, 2024</p>
-        <p class="pub-note">Built and annotated a 5,800-clip Amharic speech dataset and compared CNN, RNN, and LSTM
-          models on MFCC and spectral features for real-time threat classification.</p>
+        <p class="pub-title">Threat Detection in Spoken Amharic Language</p>
+        <p class="pub-venue">Addis Ababa University, 2024 &middot; <a href="https://amharic-language-threat-prediction.vercel.app" target="_blank" rel="noopener">live demo</a></p>
+        <p class="pub-note">Collected and annotated 5,800 recordings for a language with almost no speech resources.
+          The best CNN reached 91% accuracy and 0.89 F1.</p>
       </div>
     </div>
+    <!-- ============ END ADD PROJECT HERE ============ -->
   </section>
 
   <!-- ============================ EXPERIENCE ============================ -->
   <section id="experience" class="wrap">
     <h2 class="section-title">Experience</h2>
 
+    <p class="group-label">Teaching</p>
+    <ul class="compact-list">
+      <!-- ============ ADD TEACHING HERE (copy this whole <li>) ============ -->
+      <li><span class="cl-date">2025</span><span><strong>Assistant Lecturer</strong>, Computer Programming, Addis Ababa University. Lectures, labs, and a live coding session after each class.</span></li>
+      <li><span class="cl-date">2024</span><span><strong>Teaching Assistant</strong>, Data Structures and Algorithms, AddisCoder. Supported 99 high school students from across Ethiopia.</span></li>
+      <li><span class="cl-date">2024</span><span><strong>Back-end Development Instructor</strong>, Ethioware EdTech Initiative. Trained 54 women across several African countries.</span></li>
+      <!-- ============ END ADD TEACHING HERE ============ -->
+    </ul>
+
+    <p class="group-label">Professional</p>
     <ul class="compact-list">
       <!-- ============ ADD EXPERIENCE HERE (copy this whole <li>) ============ -->
       <li><span class="cl-date">2025</span><span><strong>Software Developer</strong>, Phoenixopia Solutions PLC, Addis Ababa</span></li>
-      <li><span class="cl-date">2024&ndash;2025</span><span><strong>Task Lead, Machine Learning</strong>, Omdena San Jose Chapter. Led 25 junior engineers on cardiovascular risk modeling with NHANES data.</span></li>
-      <li><span class="cl-date">2023</span><span><strong>Software Engineer Intern</strong>, Escalate Africa Software Development S.C., Addis Ababa</span></li>
+      <li><span class="cl-date">2024&ndash;2025</span><span><strong>Task Lead, Machine Learning</strong>, Omdena San Jose Chapter. Led 25 engineers on cardiovascular risk modeling with NHANES data.</span></li>
       <!-- ============ END ADD EXPERIENCE HERE ============ -->
     </ul>
 
-    <p class="group-label">Teaching and Leadership</p>
+    <p class="group-label">Leadership</p>
     <ul class="compact-list">
-      <li><span class="cl-date">2025</span><span><strong>Assistant Lecturer</strong>, Computer Programming, Addis Ababa University</span></li>
-      <li><span class="cl-date">2023&ndash;2025</span><span><strong>Head of Communications Education</strong>, Africa to Silicon Valley. Trained 205 students from 20+ African countries.</span></li>
-      <li><span class="cl-date">2024</span><span><strong>Teaching Assistant</strong>, Data Structures and Algorithms, AddisCoder. Supported 99 high school students.</span></li>
-      <li><span class="cl-date">2024</span><span><strong>Back-end Instructor</strong>, Ethioware EdTech Initiative. Trained 54 women across several African countries.</span></li>
+      <li><span class="cl-date">2023&ndash;2025</span><span><strong>Head of Communications Education</strong>, Africa to Silicon Valley. Trained 205 students from more than 20 African countries.</span></li>
     </ul>
   </section>
 
   <!-- ============================ AWARDS ============================ -->
   <section id="awards" class="wrap">
-    <h2 class="section-title">Awards</h2>
+    <h2 class="section-title">Awards and Talks</h2>
+
     <ul class="compact-list">
       <!-- ============ ADD AWARD HERE (copy this whole <li>) ============ -->
       <li><span class="cl-date">2025</span><span><strong>Black in Robotics + 3M Tuition Fellowship</strong> &nbsp; One of two awardees nationally for 2025&ndash;26 <a class="cert-link" href="https://blackinrobotics.org/bir-3m-ms-student-tuition-fellowship" target="_blank" rel="noopener">announcement</a></span></li>
-      <li><span class="cl-date">2024</span><span><strong>Best Poster Presentation</strong> &nbsp; Team award, Addis Ababa University Research Week <a class="cert-link" href="https://drive.google.com/file/d/11uqDvG1mSXpuPF65gBtXTL2dnJ900Juu/view?usp=sharing" target="_blank" rel="noopener">certificate</a></span></li>
-      <li><span class="cl-date">2023</span><span><strong>Aspire Leaders Program</strong> &nbsp; Top 2% finalist, 2023 cohort <a class="cert-link" href="https://drive.google.com/file/d/1lfodOc4Ky7tDk0EV5W7D7bXnLcjQwVXd/view" target="_blank" rel="noopener">certificate</a></span></li>
+      <li><span class="cl-date">2024</span><span><strong>Best Poster Presentation</strong> &nbsp; Team award, AAU Research Week <a class="cert-link" href="https://drive.google.com/file/d/11uqDvG1mSXpuPF65gBtXTL2dnJ900Juu/view?usp=sharing" target="_blank" rel="noopener">certificate</a></span></li>
+      <li><span class="cl-date">2023</span><span><strong>Aspire Leaders Program</strong> &nbsp; Top 2% finalist from a global applicant pool <a class="cert-link" href="https://drive.google.com/file/d/1lfodOc4Ky7tDk0EV5W7D7bXnLcjQwVXd/view" target="_blank" rel="noopener">certificate</a></span></li>
+      <li><span class="cl-date">2023</span><span><strong>Third-place team award</strong> &nbsp; A2SV internship program with Eskalate LLC</span></li>
       <li><span class="cl-date">2021</span><span><strong>Huawei Seeds for the Future</strong> &nbsp; Top 40 students in Ethiopia <a class="cert-link" href="https://drive.google.com/file/d/1-CXTQNJx5vKhAGsXGJcv5oOGpN8W9W5Z/view" target="_blank" rel="noopener">certificate</a></span></li>
       <!-- ============ END ADD AWARD HERE ============ -->
+    </ul>
+
+    <p class="group-label">Talks and Posters</p>
+    <ul class="compact-list">
+      <!-- ============ ADD TALK HERE (copy this whole <li>) ============ -->
+      <li><span class="cl-date">Oct 2026</span><span>Oral presentation, <em>Reliability and Explainability of Vision Transformers Under Medical Distribution Shift</em>, MICAD 2026, Edinburgh</span></li>
+      <li><span class="cl-date">Apr 2026</span><span>Poster, stress detection benchmarking, GWU SEAS Research and Development Showcase</span></li>
+      <li><span class="cl-date">May 2024</span><span>Poster, <em>Threat Detection in Spoken Amharic Language</em>, AAU Research Week</span></li>
+      <!-- ============ END ADD TALK HERE ============ -->
     </ul>
   </section>
 
@@ -206,7 +259,7 @@
   <section id="education" class="wrap">
     <h2 class="section-title">Education</h2>
     <ul class="compact-list">
-      <li><span class="cl-date">2025&ndash;2027</span><span><strong>MS, Artificial Intelligence and Machine Learning</strong>, The George Washington University. GPA 3.78.</span></li>
+      <li><span class="cl-date">2025&ndash;2027</span><span><strong>MS, Artificial Intelligence and Machine Learning</strong>, The George Washington University. GPA 3.78. Thesis advised by Xiaodong Qu.</span></li>
       <li><span class="cl-date">2019&ndash;2024</span><span><strong>BS, Software Engineering and Computing Technology</strong>, Addis Ababa University. GPA 3.62, Great Distinction.</span></li>
       <li><span class="cl-date">2026</span><span><strong>Deep Learning Course</strong>, Neuromatch Academy</span></li>
     </ul>
@@ -227,6 +280,6 @@
   </div>
 </footer>
 
-<script src="main.js?v=15"></script>
+<script src="main.js?v=19"></script>
 </body>
 </html>
